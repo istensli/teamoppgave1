@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+
+    <style>
+        #items-container{
+            display: flex;
+            flex-direction: row;
+            
+        }
+
+        #inventory-div{
+            width: 700px;
+            height: 500px;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="items-container">
+
+        <div id="item1" onclick="klikk(this)"><img id="marioImage" src="mario.png" style="width:100px; height: 100px"></div>
+        <div id="item2" onclick="klikk(this)"><img id="luigiImage" src="luigi.png" style="width:100px; height: 100px"></div>
+        <div id="item3" onclick="klikk(this)"><img id="paereImage" src="paere.gif" style="width:100px; height: 100px"></div>
+        <button onclick="showHideInventory()">Show/Hide inventory</button>
+        
+    </div> 
+    
+    <br />
+
+    <div id="inventory-div"></div>
+    <div></div>
+
+    <script>
+        let inventory = "";
+        let inventoryDiv = document.getElementById('inventory-div');
+        let showInventoryBool = false;
+
+        function klikk(tag){
+            inventory += tag.innerHTML;
+            saveInventory();
+            console.log(inventory);
+            
+            
+
+        }
+
+        function saveInventory(){
+            inventoryDiv.innerHTML = inventory;
+            
+        }
+
+        function showHideInventory(){
+            saveInventory();
+            if(showInventoryBool){
+                inventoryDiv.style.display = 'block';
+                showInventoryBool = false;
+            }
+            else{
+                inventoryDiv.style.display = 'none';
+                showInventoryBool = true;
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
